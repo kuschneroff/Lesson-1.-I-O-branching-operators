@@ -14,12 +14,13 @@
 import random
 
 n = int(input('Введите натуральное число n, которое определяет кол-во элементов в массиве: '))
-x = int(input('Введите начало диапозона массива: '))
+z = int(input('Введите начало диапозона массива: '))
 y = int(input('Введите конец диапозона массива: '))
-my_array = [random.randint(x, y) for i in range(n)]
+x = int(input('Введите число X: '))
+my_array = [random.randint(z, y) for i in range(n)]
 print(f'Массив {my_array} из {n} элементов')
 count = 0
 for number in my_array:
-    if number == 5:
+    if number == x:
         count += 1
-print(f'Число 5 встречается {count} раз в заданном масcиве от {x} до {y}')
+print(f'Число {x} встречается {count} раз в заданном масcиве от {z} до {y}')
