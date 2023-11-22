@@ -5,12 +5,10 @@
 100 -> 1 (1 + 0 + 0) |
 '''
 
-n = int(input('Введите многозначное число: '))
-n_str = str(n)
-digits_sum = 0
-if n < 10:
-    print('Попробуй еще разок ввести многозначное число, это точно больше 9')
-for i in range(len(n_str)):
-    digit = int(n_str[i])
-    digits_sum = digits_sum + digit
-print(digits_sum)
+str_n = input('Введите трехзначное натуральное число: ')
+while len(str_n) != 3 or not str_n.isdigit():
+    print('Попробуй еще разок, так как введено не трехзначное число!')
+    str_n = input('Введите трехзначное натрульное число: ')
+n_int = int(str_n)
+summ_of_digits = int(str_n[0]) + int(str_n[1]) + int(str_n[2])
+print(f'Сумма цифр в трехзначном числе = {summ_of_digits}')
