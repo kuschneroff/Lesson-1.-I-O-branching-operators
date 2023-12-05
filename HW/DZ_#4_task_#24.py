@@ -12,13 +12,19 @@
 собрать за один заход собирающий модуль, находясь перед некоторым кустом
 заданной во входном файле грядки.'''
 
-n = int(input("Введите кол-во кустов на грядке: "))
-a = list(map(int, input("Введите кол-во ягод на кусте: ").split()))
+def max_berry_harvest(arr):
+    n = len(arr)
+    max_harvest = 0
 
-max_sum = 0
-for i in range(1, n-1):
-    current_sum = sum(a[i-1:i+2])
-    if current_sum > max_sum:
-        max_sum = current_sum
+    for i in range(n):
+        harvest_from_single_bush = arr[i]
+        harvest_from_two_adjacent_bushes = arr[i] + arr[(i + 1) % n]
+        harvest_from_three_adjacent_bushes = arr[i] + arr[(i + 1) % n] + arr[(i + 2) % n]
+        max_harvest = max(max_harvest, harvest_from_single_bush, harvest_from_two_adjacent_bushes, harvest_from_three_adjacent_bushes)
 
-print(max_sum)
+    return max_harvest
+
+# Пример использования
+arr = [5, 8, 6, 4, 9, 2, 7, 3]
+result = max_berry_harvest(arr)
+print(result)
